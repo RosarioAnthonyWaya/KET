@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services — KET Shopping Limited</title>
+  <meta name="description" content="KET Shopping Limited offers market runs, procurement, vendor validation, market guidance, product surveys, and more. We handle the stress so you don't have to.">
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --blue:      #1414a8;
+      --blue-dark: #0d0d7c;
+      --blue-light:#eaeaff;
+      --blue-pale: #f2f2ff;
+      --black:     #0c0c0c;
+      --white:     #ffffff;
+      --off:       #f6f6f4;
+      --grey-1:    #888888;
+      --grey-2:    #b8b8b4;
+      --grey-3:    #e2e2de;
+      --font-head: 'Satoshi','Manrope','Inter',sans-serif;
+      --font-body: 'Inter','Manrope',sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--grey-3); height: 66px; padding: 0 52px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+    .nav-icon { width: 38px; height: 38px; background: var(--blue); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .nav-brand { display: flex; flex-direction: column; line-height: 1; }
+    .nav-brand-main { font-family: var(--font-head); font-size: 19px; font-weight: 700; color: var(--blue); letter-spacing: -0.3px; }
+    .nav-brand-sub { font-size: 9px; font-weight: 400; letter-spacing: 2.2px; text-transform: uppercase; color: var(--grey-2); margin-top: 3px; }
+    .nav-links { list-style: none; display: flex; align-items: center; gap: 34px; }
+    .nav-links a { font-size: 13.5px; font-weight: 400; color: #555; text-decoration: none; transition: color .18s; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links a.active { color: var(--blue); font-weight: 500; }
+    .nav-cta { background: var(--blue) !important; color: var(--white) !important; padding: 9px 22px; border-radius: 6px; font-weight: 500 !important; }
+    .nav-cta:hover { background: var(--blue-dark) !important; }
+    .nav-ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; padding: 6px; }
+    .nav-ham span { display: block; width: 22px; height: 2px; background: var(--black); border-radius: 2px; }
+    .mob-nav { display: none; position: fixed; inset: 0; background: var(--white); z-index: 190; flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
+    .mob-nav.show { display: flex; }
+    .mob-nav a { font-family: var(--font-head); font-size: 28px; font-weight: 700; color: var(--black); text-decoration: none; }
+    .mob-nav a:hover, .mob-nav a.active { color: var(--blue); }
+    .mob-close { position: absolute; top: 20px; right: 24px; font-size: 26px; cursor: pointer; border: none; background: none; color: var(--black); }
+
+    /* PAGE HEADER */
+    .page-header { background: var(--blue); padding: 80px 52px 72px; position: relative; overflow: hidden; }
+    .page-header-label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 14px; display: block; }
+    .page-header h1 { font-family: var(--font-head); font-size: clamp(32px,5vw,60px); font-weight: 700; color: var(--white); letter-spacing: -1.5px; line-height: 1.08; max-width: 640px; }
+    .page-header-sub { font-size: 17px; font-weight: 300; color: rgba(255,255,255,.65); max-width: 520px; margin-top: 20px; line-height: 1.8; }
+    .page-header-bg { position: absolute; right: -60px; bottom: -40px; font-family: var(--font-head); font-size: 320px; font-weight: 800; color: rgba(255,255,255,.04); line-height: 1; pointer-events: none; user-select: none; }
+
+    /* LAYOUT */
+    .sec { padding: 88px 52px; }
+    .sec-off { background: var(--off); }
+    .sec-dark { background: var(--black); }
+    .label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; display: block; }
+    .sec-title { font-family: var(--font-head); font-size: clamp(26px,3.5vw,44px); font-weight: 700; line-height: 1.1; letter-spacing: -1px; color: var(--black); margin-bottom: 20px; }
+    .sec-body { font-size: 15.5px; font-weight: 300; line-height: 1.85; color: var(--grey-1); max-width: 600px; margin-bottom: 56px; }
+
+    /* SERVICES GRID */
+    .svc-list { display: flex; flex-direction: column; gap: 2px; }
+
+    .svc-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--grey-3);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--white);
+      transition: border-color .2s;
+    }
+
+    .svc-row:hover { border-color: var(--blue); }
+
+    .svc-num-col {
+      background: var(--blue-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; color: var(--blue); opacity: .6;
+      padding: 32px 0;
+      border-right: 1px solid var(--grey-3);
+    }
+
+    .svc-content { padding: 36px 36px; border-right: 1px solid var(--grey-3); }
+
+    .svc-content h3 {
+      font-family: var(--font-head);
+      font-size: 20px; font-weight: 700;
+      color: var(--black); letter-spacing: -0.3px;
+      margin-bottom: 12px;
+    }
+
+    .svc-content p {
+      font-size: 14px; font-weight: 300;
+      color: var(--grey-1); line-height: 1.85;
+    }
+
+    .svc-action {
+      padding: 36px 36px;
+      display: flex; align-items: center; justify-content: flex-end;
+    }
+
+    .svc-link {
+      font-size: 13px; font-weight: 500;
+      color: var(--blue); text-decoration: none;
+      border-bottom: 1px solid var(--blue);
+      padding-bottom: 2px; display: inline-block;
+      transition: opacity .18s;
+    }
+
+    .svc-link:hover { opacity: .7; }
+
+    /* HIGHLIGHT SERVICE */
+    .svc-row.featured { border-color: var(--blue); }
+    .svc-row.featured .svc-num-col { background: var(--blue); color: white; opacity: 1; }
+
+    /* BOTTOM NOTE */
+    .process-note {
+      background: var(--off);
+      border-radius: 12px;
+      padding: 40px 44px;
+      display: flex; align-items: flex-start; gap: 24px;
+      margin-top: 48px;
+    }
+
+    .note-icon {
+      width: 48px; height: 48px; border-radius: 10px;
+      background: var(--blue-light);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .note-text h4 { font-family: var(--font-head); font-size: 16px; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+    .note-text p { font-size: 14px; font-weight: 300; color: var(--grey-1); line-height: 1.8; }
+
+    /* HOW SECTION */
+    .how-steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .how-step { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 10px; padding: 36px 28px; }
+    .how-step-n { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; color: rgba(255,255,255,.25); margin-bottom: 16px; }
+    .how-step h3 { font-family: var(--font-head); font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 12px; letter-spacing: -0.2px; }
+    .how-step p { font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,.42); line-height: 1.85; }
+
+    /* CTA */
+    .cta-band { background: var(--blue); padding: 80px 52px; text-align: center; }
+    .cta-band h2 { font-family: var(--font-head); font-size: clamp(26px,4vw,48px); font-weight: 700; color: var(--white); letter-spacing: -1px; line-height: 1.1; max-width: 560px; margin: 0 auto 16px; }
+    .cta-band p { font-size: 16px; font-weight: 300; color: rgba(255,255,255,.6); margin-bottom: 36px; }
+    .btn { display: inline-flex; align-items: center; padding: 13px 30px; border-radius: 7px; font-size: 14px; font-weight: 500; font-family: var(--font-body); text-decoration: none; cursor: pointer; border: none; transition: background .18s, opacity .18s; }
+    .btn-white { background: var(--white); color: var(--blue); }
+    .btn-white:hover { opacity: .88; }
+
+    /* FOOTER */
+    footer { background: var(--black); padding: 68px 52px 36px; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 52px; margin-bottom: 52px; }
+    .footer-brand-name { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: -0.3px; margin-bottom: 4px; }
+    .footer-brand-sub { font-size: 9.5px; letter-spacing: 2.2px; text-transform: uppercase; color: rgba(255,255,255,.2); margin-bottom: 16px; }
+    .footer-brand p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,.34); line-height: 1.85; max-width: 270px; }
+    .footer-col h5 { font-size: 10px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.2); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-col a { font-size: 13px; color: rgba(255,255,255,.42); text-decoration: none; font-weight: 300; transition: color .18s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 26px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { font-size: 12px; color: rgba(255,255,255,.18); font-weight: 300; }
+
+    @media (max-width: 900px) {
+      .nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-ham { display: flex; }
+      .page-header { padding: 60px 24px 56px; }
+      .sec { padding: 60px 24px; }
+      .svc-row { grid-template-columns: 60px 1fr; }
+      .svc-action { display: none; }
+      .svc-content { border-right: none; }
+      .how-steps { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: span 2; }
+      .cta-band { padding: 64px 24px; }
+      footer { padding: 52px 24px 28px; }
+      .process-note { flex-direction: column; padding: 28px 24px; }
+    }
+    @media (max-width: 540px) {
+      .svc-row { grid-template-columns: 1fr; }
+      .svc-num-col { display: none; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 3L4 21L9 21L9 14.5L11 12.5L16.5 21L22 21L15 12L21.5 3L16 3L9 11.5L9 3Z" fill="white"/></svg></div>
+    <div class="nav-brand"><span class="nav-brand-main">Ket</span><span class="nav-brand-sub">Shopping &amp; Co</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="how-it-works.html">How it works</a></li>
+    <li><a href="contact.html" class="nav-cta">Get started</a></li>
+  </ul>
+  <button class="nav-ham" onclick="document.getElementById('mn').classList.add('show')" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mn">
+  <button class="mob-close" onclick="document.getElementById('mn').classList.remove('show')">✕</button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html" class="active">Services</a>
+  <a href="how-it-works.html">How it works</a>
+  <a href="contact.html" style="color:var(--blue)">Get started</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <span class="page-header-label">Our Services</span>
+  <h1>We handle the stress so you don't have to.</h1>
+  <p class="page-header-sub">From market runs to vendor validation — KET covers the parts of shopping that take up your time and energy.</p>
+  <div class="page-header-bg" aria-hidden="true">K</div>
+</div>
+
+<!-- SERVICES -->
+<section class="sec">
+  <span class="label">What we offer</span>
+  <h2 class="sec-title">Six ways KET makes your life easier.</h2>
+  <p class="sec-body">Each service is designed around one goal: saving you time and reducing the stress of shopping and procurement in Lagos.</p>
+
+  <div class="svc-list">
+
+    <div class="svc-row featured">
+      <div class="svc-num-col">01</div>
+      <div class="svc-content">
+        <h3>Market Runs</h3>
+        <p>We handle your market errands so you don't have to deal with traffic, crowds, or delays. Tell us exactly what you need and we'll take care of it — from sourcing to pickup.</p>
+      </div>
+      <div class="svc-action"><a href="contact.html" class="svc-link">Start a request &rarr;</a></div>
+    </div>
+
+    <div class="svc-row">
+      <div class="svc-num-col">02</div>
+      <div class="svc-content">
+        <h3>Procurement</h3>
+        <p>We help source and purchase items based on your specific needs, ensuring you get what you're looking for at the right quality — without the back-and-forth stress of doing it yourself.</p>
+      </div>
+      <div class="svc-action"><a href="contact.html" class="svc-link">Start a request &rarr;</a></div>
+    </div>
+
+    <div class="svc-row">
+      <div class="svc-num-col">03</div>
+      <div class="svc-content">
+        <h3>Market Pickup &amp; Vendor Validation</h3>
+        <p>We verify vendors before you commit and handle pickups on your behalf — so you avoid unreliable suppliers, fake products, and unnecessary risk. Trust, verified.</p>
+      </div>
+      <div class="svc-action"><a href="contact.html" class="svc-link">Start a request &rarr;</a></div>
+    </div>
+
+    <div class="svc-row">
+      <div class="svc-num-col">04</div>
+      <div class="svc-content">
+        <h3>Market Guidance</h3>
+        <p>Not sure where to buy or who to trust? We guide you through the best options, pricing, and sourcing decisions — so you can make confident choices without wandering the market yourself.</p>
+      </div>
+      <div class="svc-action"><a href="contact.html" class="svc-link">Start a request &rarr;</a></div>
+    </div>
+
+    <div class="svc-row">
+      <div class="svc-num-col">05</div>
+      <div class="svc-content">
+        <h3>Product Survey</h3>
+        <p>Before you buy, we help you understand the full range of product options available in the market — quality levels, price points, and what to watch out for — so your purchase is informed.</p>
+      </div>
+      <div class="svc-action"><a href="contact.html" class="svc-link">Start a request &rarr;</a></div>
+    </div>
+
+    <div class="svc-row">
+      <div class="svc-num-col">06</div>
+      <div class="svc-content">
+        <h3>Sale of Reliable Vendors' Contacts</h3>
+        <p>Get access to a curated list of trusted, verified vendor contacts — so you can make better purchasing decisions now and in the future. Built from real market experience.</p>
+      </div>
+      <div class="svc-action"><a href="contact.html" class="svc-link">Get in touch &rarr;</a></div>
+    </div>
+
+  </div>
+
+  <div class="process-note">
+    <div class="note-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1414a8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    </div>
+    <div class="note-text">
+      <h4>Not sure which service you need?</h4>
+      <p>That's fine — just reach out and tell us what you're trying to get done. We'll help you figure out the best way forward. No pressure, no packages, no pricing upfront.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS MINI -->
+<section class="sec sec-dark">
+  <span class="label-white" style="font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px;display:block;">How it works</span>
+  <h2 style="font-family:var(--font-head);font-size:clamp(26px,3.5vw,44px);font-weight:700;line-height:1.1;letter-spacing:-1px;color:var(--white);margin-bottom:0;">Simple from your end. Handled on ours.</h2>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="how-step-n">STEP 01</div>
+      <h3>Tell us what you need</h3>
+      <p>Reach out via the contact form, WhatsApp, or phone. Describe your request — what you need, when, and any details that help.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-n">STEP 02</div>
+      <h3>We source and coordinate</h3>
+      <p>KET handles the search, validation, and coordination — working to get you the right product or service from a reliable source.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-n">STEP 03</div>
+      <h3>You get the result</h3>
+      <p>You save time, avoid stress, and get quality without having to deal with the process yourself. That's the KET promise.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2>Ready to get started?</h2>
+  <p>Tell us what you need and we'll handle it from there.</p>
+  <a href="contact.html" class="btn btn-white">Get started</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Ket</div>
+      <div class="footer-brand-sub">Shopping Limited</div>
+      <p>A shopping and procurement agency for busy individuals in Lagos who value their time and refuse to compromise on quality.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:+2348101571161">+234 810 157 1161</a></li>
+        <li><a href="https://www.instagram.com/ket_shopping_limited" target="_blank">@ket_shopping_limited</a></li>
+        <li><a href="https://ketshopping.com">ketshopping.com</a></li>
+        <li><a>Oworonshoki, Lagos</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; KET Shopping Limited &nbsp;&middot;&nbsp; ketshopping.com</p>
+    <p>Oworonshoki, Lagos, Nigeria</p>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.querySelector('.nav').style.boxShadow = window.scrollY > 8 ? '0 1px 24px rgba(0,0,0,0.07)' : 'none';
+  });
+</script>
+</body>
+</html>
