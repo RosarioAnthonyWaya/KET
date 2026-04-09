@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KET Shopping Limited | The Easy Way to Shop & Procure in Lagos</title>
+  <meta name="description" content="KET Shopping Limited helps busy individuals in Lagos save time and stress with personalized shopping and procurement support — quality without compromise.">
+
+  <!-- Fonts: Satoshi (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.cdnfonts.com">
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue:       #1414a8;
+      --blue-dark:  #0d0d7c;
+      --blue-hover: #1c1cc4;
+      --blue-light: #eaeaff;
+      --blue-pale:  #f2f2ff;
+      --black:      #0c0c0c;
+      --white:      #ffffff;
+      --off:        #f6f6f4;
+      --grey-1:     #888888;
+      --grey-2:     #b8b8b4;
+      --grey-3:     #e2e2de;
+      --font-head:  'Satoshi', 'Manrope', 'Inter', sans-serif;
+      --font-body:  'Inter', 'Manrope', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    /* ─── NAV ──────────────────────────────────────────────── */
+    .nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--grey-3);
+      height: 66px;
+      padding: 0 52px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 11px;
+      text-decoration: none;
+    }
+
+    .nav-icon {
+      width: 38px; height: 38px;
+      background: var(--blue);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .nav-brand {
+      display: flex; flex-direction: column; line-height: 1;
+    }
+
+    .nav-brand-main {
+      font-family: var(--font-head);
+      font-size: 19px; font-weight: 700;
+      color: var(--blue); letter-spacing: -0.3px;
+    }
+
+    .nav-brand-sub {
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 2.2px; text-transform: uppercase;
+      color: var(--grey-2); margin-top: 3px;
+    }
+
+    .nav-links { list-style: none; display: flex; align-items: center; gap: 34px; }
+
+    .nav-links a {
+      font-size: 13.5px; font-weight: 400;
+      color: #555; text-decoration: none;
+      transition: color .18s;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .nav-cta {
+      background: var(--blue) !important;
+      color: var(--white) !important;
+      padding: 9px 22px;
+      border-radius: 6px;
+      font-weight: 500 !important;
+      font-size: 13.5px !important;
+      transition: background .18s !important;
+    }
+
+    .nav-cta:hover { background: var(--blue-dark) !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      cursor: pointer; border: none; background: none; padding: 6px;
+    }
+
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--black); border-radius: 2px;
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none; position: fixed; inset: 0;
+      background: var(--white); z-index: 190;
+      flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+    }
+
+    .mobile-nav.show { display: flex; }
+
+    .mobile-nav a {
+      font-family: var(--font-head);
+      font-size: 28px; font-weight: 700;
+      color: var(--black); text-decoration: none;
+      transition: color .18s;
+    }
+
+    .mobile-nav a:hover, .mobile-nav a.cta { color: var(--blue); }
+
+    .mobile-close {
+      position: absolute; top: 20px; right: 24px;
+      font-size: 26px; cursor: pointer;
+      border: none; background: none; color: var(--black);
+    }
+
+    /* ─── BUTTONS ─────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 13px 28px;
+      border-radius: 7px;
+      font-size: 14px; font-weight: 500;
+      font-family: var(--font-body);
+      text-decoration: none;
+      cursor: pointer; border: none;
+      transition: background .18s, opacity .18s, border-color .18s;
+      letter-spacing: 0.1px;
+    }
+
+    .btn-blue { background: var(--blue); color: var(--white); }
+    .btn-blue:hover { background: var(--blue-dark); }
+
+    .btn-white { background: var(--white); color: var(--blue); }
+    .btn-white:hover { opacity: .88; }
+
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.32);
+    }
+
+    .btn-outline:hover { border-color: rgba(255,255,255,.7); }
+
+    .btn-outline-blue {
+      background: transparent; color: var(--blue);
+      border: 1.5px solid var(--blue);
+    }
+
+    .btn-outline-blue:hover { background: var(--blue-pale); }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    .hero {
+      background: var(--blue);
+      min-height: 91vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      padding: 0 56px 0 52px;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; z-index: 2;
+    }
+
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.7);
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 7px 16px; border-radius: 100px;
+      width: fit-content; margin-bottom: 32px;
+    }
+
+    .hero-pill-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(255,255,255,.4);
+    }
+
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(38px, 5.2vw, 66px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-size: 16px; font-weight: 300; line-height: 1.8;
+      color: rgba(255,255,255,.65);
+      max-width: 460px; margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      align-items: center; margin-bottom: 28px;
+    }
+
+    .hero-micro {
+      font-size: 12px; font-weight: 400;
+      color: rgba(255,255,255,.38);
+      letter-spacing: 0.2px;
+    }
+
+    .hero-right {
+      position: relative; overflow: hidden;
+    }
+
+    .hero-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Gradient overlay so image blends left */
+    .hero-right::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to right, var(--blue) 0%, transparent 28%);
+    }
+
+    /* Floating stat card */
+    .hero-card {
+      position: absolute;
+      bottom: 40px; left: 32px; z-index: 2;
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 12px;
+      padding: 20px 24px;
+      max-width: 240px;
+    }
+
+    .hero-card-label {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 10px;
+    }
+
+    .hero-card-text {
+      font-family: var(--font-head);
+      font-size: 15px; font-weight: 600;
+      color: var(--white); line-height: 1.5;
+    }
+
+    /* ─── TRUST BAR ────────────────────────────────────────── */
+    .trust-bar {
+      background: var(--black);
+      padding: 0 52px;
+      height: 52px;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+
+    .trust-track {
+      display: flex; align-items: center; gap: 56px;
+      animation: trust-scroll 24s linear infinite;
+      width: max-content;
+    }
+
+    .trust-item {
+      display: flex; align-items: center; gap: 56px;
+      white-space: nowrap;
+    }
+
+    .trust-text {
+      font-family: var(--font-head);
+      font-size: 13px; font-weight: 600;
+      color: var(--white); letter-spacing: 0.2px;
+    }
+
+    .trust-accent { color: #f0c040; }
+
+    .trust-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(255,255,255,.22); flex-shrink: 0;
+    }
+
+    @keyframes trust-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── SECTION BASICS ──────────────────────────────────── */
+    .section      { padding: 96px 52px; }
+    .section-off  { background: var(--off); }
+    .section-dark { background: var(--black); }
+    .section-blue { background: var(--blue); }
+
+    .label {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 14px;
+      display: block;
+    }
+
+    .label-white {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: rgba(255,255,255,.35); margin-bottom: 14px;
+      display: block;
+    }
+
+    .sec-title {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -1px; color: var(--black);
+      margin-bottom: 18px;
+    }
+
+    .sec-title-white {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -1px; color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .sec-body {
+      font-size: 15.5px; font-weight: 300; line-height: 1.85;
+      color: var(--grey-1); max-width: 500px;
+      margin-bottom: 52px;
+    }
+
+    /* ─── VALUE PROPS ─────────────────────────────────────── */
+    .why-wrap {
+      display: grid; grid-template-columns: 1fr 2fr;
+      gap: 80px; align-items: start;
+    }
+
+    .why-left { padding-top: 8px; }
+
+    .why-left p {
+      font-size: 15px; font-weight: 300;
+      line-height: 1.85; color: var(--grey-1);
+      margin-bottom: 32px;
+    }
+
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--grey-3);
+      border: 1px solid var(--grey-3);
+      border-radius: 12px; overflow: hidden;
+    }
+
+    .val {
+      background: var(--white); padding: 36px 30px;
+      transition: background .2s;
+    }
+
+    .val:hover { background: var(--blue-pale); }
+
+    .val-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--blue-light);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .val-n {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--blue); opacity: .5; margin-bottom: 10px;
+    }
+
+    .val h3 {
+      font-family: var(--font-head);
+      font-size: 17px; font-weight: 600;
+      color: var(--black); margin-bottom: 10px;
+      letter-spacing: -0.2px;
+    }
+
+    .val p {
+      font-size: 13.5px; font-weight: 300;
+      color: var(--grey-1); line-height: 1.8;
+    }
+
+    /* ─── ABOUT PREVIEW ───────────────────────────────────── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+
+    .about-img-wrap {
+      border-radius: 14px; overflow: hidden;
+      aspect-ratio: 4/5; position: relative;
+    }
+
+    .about-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .about-badge {
+      position: absolute; bottom: 28px; left: 28px;
+      background: var(--white);
+      border-radius: 10px; padding: 18px 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+    }
+
+    .about-badge-name {
+      font-family: var(--font-head);
+      font-size: 14px; font-weight: 600;
+      color: var(--black); margin-bottom: 3px;
+    }
+
+    .about-badge-role {
+      font-size: 12px; font-weight: 400;
+      color: var(--grey-1); letter-spacing: 0.2px;
+    }
+
+    .about-right .sec-title { max-width: 480px; margin-bottom: 20px; }
+
+    .about-right p {
+      font-size: 15px; font-weight: 300;
+      line-height: 1.9; color: var(--grey-1);
+      margin-bottom: 20px;
+    }
+
+    .about-quote {
+      border-left: 2px solid var(--blue);
+      padding-left: 20px; margin: 32px 0;
+    }
+
+    .about-quote p {
+      font-family: var(--font-head);
+      font-size: 18px; font-weight: 600;
+      color: var(--blue); line-height: 1.45;
+      font-style: normal; margin: 0;
+    }
+
+    .about-quote cite {
+      display: block; font-size: 12px;
+      font-weight: 400; font-style: normal;
+      color: var(--grey-1); margin-top: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ─── SERVICES ────────────────────────────────────────── */
+    .services-intro {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: end; margin-bottom: 52px;
+    }
+
+    .services-intro .sec-title { margin-bottom: 0; }
+
+    .services-intro-right p {
+      font-size: 15px; font-weight: 300;
+      line-height: 1.85; color: var(--grey-1);
+    }
+
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .svc {
+      border: 1px solid var(--grey-3);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color .2s, transform .2s;
+      background: var(--white);
+    }
+
+    .svc:hover { border-color: var(--blue); transform: translateY(-4px); }
+
+    .svc-img {
+      height: 180px; overflow: hidden; position: relative;
+    }
+
+    .svc-img img { transition: transform .4s; }
+    .svc:hover .svc-img img { transform: scale(1.05); }
+
+    .svc-body { padding: 24px 22px; }
+
+    .svc-n {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--blue); opacity: .5; margin-bottom: 10px;
+    }
+
+    .svc h3 {
+      font-family: var(--font-head);
+      font-size: 16px; font-weight: 600;
+      color: var(--black); margin-bottom: 10px;
+      letter-spacing: -0.2px; line-height: 1.3;
+    }
+
+    .svc p {
+      font-size: 13px; font-weight: 300;
+      color: var(--grey-1); line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .svc-link {
+      font-size: 12px; font-weight: 500;
+      color: var(--blue); text-decoration: none;
+      border-bottom: 1px solid var(--blue);
+      padding-bottom: 1px; display: inline-block;
+    }
+
+    /* ─── HOW IT WORKS ────────────────────────────────────── */
+    .how-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 12px; overflow: hidden;
+      margin-top: 60px;
+    }
+
+    .how-step { padding: 44px 36px; }
+
+    .how-rule {
+      width: 100%; height: 1px;
+      background: rgba(255,255,255,.1);
+      margin-bottom: 28px; position: relative;
+    }
+
+    .how-rule::before {
+      content: ''; position: absolute;
+      left: 0; top: -5px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--blue-hover);
+    }
+
+    .how-n {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: rgba(255,255,255,.2); margin-bottom: 16px;
+    }
+
+    .how-step h3 {
+      font-family: var(--font-head);
+      font-size: 18px; font-weight: 600;
+      color: var(--white); margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+
+    .how-step p {
+      font-size: 13.5px; font-weight: 300;
+      color: rgba(255,255,255,.42); line-height: 1.85;
+    }
+
+    .how-note {
+      margin-top: 48px;
+      font-size: 13px; font-weight: 300;
+      color: rgba(255,255,255,.22);
+      font-style: italic; max-width: 480px;
+    }
+
+    /* ─── CTA BAND ────────────────────────────────────────── */
+    .cta-band {
+      background: var(--blue);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+      padding: 88px 52px;
+    }
+
+    .cta-left h2 {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 3.8vw, 50px);
+      font-weight: 700; color: var(--white);
+      letter-spacing: -1px; line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .cta-left p {
+      font-size: 15.5px; font-weight: 300;
+      color: rgba(255,255,255,.6); line-height: 1.8;
+    }
+
+    .cta-right {
+      display: flex; flex-direction: column; gap: 14px;
+      align-items: flex-start;
+    }
+
+    /* ─── CONTACT ─────────────────────────────────────────── */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+    }
+
+    .contact-left .sec-title { margin-bottom: 18px; }
+
+    .contact-left > p {
+      font-size: 15px; font-weight: 300;
+      color: var(--grey-1); line-height: 1.85;
+      margin-bottom: 36px;
+    }
+
+    .channels { display: flex; flex-direction: column; gap: 12px; }
+
+    .ch {
+      display: flex; align-items: center; gap: 16px;
+      padding: 17px 20px;
+      border: 1px solid var(--grey-3);
+      border-radius: 9px;
+      text-decoration: none;
+      transition: border-color .18s, background .18s;
+    }
+
+    .ch:hover { border-color: var(--blue); background: var(--blue-pale); }
+
+    .ch-ico {
+      width: 40px; height: 40px; border-radius: 8px;
+      background: var(--blue-light);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ch-info h4 {
+      font-size: 13px; font-weight: 500;
+      color: var(--black); margin-bottom: 3px;
+    }
+
+    .ch-info p { font-size: 12px; color: var(--grey-1); font-weight: 300; }
+
+    .ch-arr { margin-left: auto; font-size: 18px; color: var(--grey-3); }
+
+    /* Form */
+    .form-box {
+      background: var(--off); border-radius: 14px;
+      padding: 40px; border: 1px solid var(--grey-3);
+    }
+
+    .form-h {
+      font-family: var(--font-head);
+      font-size: 21px; font-weight: 700;
+      color: var(--black); letter-spacing: -0.3px;
+      margin-bottom: 5px;
+    }
+
+    .form-sub {
+      font-size: 13px; color: var(--grey-1);
+      font-weight: 300; margin-bottom: 28px;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .fg { margin-bottom: 14px; }
+
+    .fl {
+      display: block; font-size: 10.5px; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--grey-1); margin-bottom: 7px;
+    }
+
+    .fi, .fta, .fsel {
+      width: 100%; padding: 11px 14px;
+      font-size: 14px; font-family: var(--font-body);
+      font-weight: 300; border: 1px solid #d8d8d4;
+      border-radius: 7px; background: var(--white);
+      color: var(--black); outline: none;
+      transition: border-color .18s, box-shadow .18s;
+      appearance: none; -webkit-appearance: none;
+    }
+
+    .fi:focus, .fta:focus, .fsel:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(20,20,168,.08);
+    }
+
+    .fta { resize: vertical; min-height: 108px; }
+
+    .f-submit {
+      width: 100%; background: var(--blue);
+      color: var(--white); border: none; border-radius: 7px;
+      padding: 14px; font-size: 14px; font-weight: 500;
+      font-family: var(--font-body); cursor: pointer;
+      margin-top: 4px; transition: background .18s;
+      letter-spacing: 0.1px;
+    }
+
+    .f-submit:hover { background: var(--blue-dark); }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      padding: 68px 52px 36px;
+    }
+
+    .footer-top {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 52px; margin-bottom: 52px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-head);
+      font-size: 20px; font-weight: 700;
+      color: var(--white); letter-spacing: -0.3px; margin-bottom: 4px;
+    }
+
+    .footer-brand-sub {
+      font-size: 9.5px; letter-spacing: 2.2px;
+      text-transform: uppercase; color: rgba(255,255,255,.2);
+      margin-bottom: 16px; font-weight: 400;
+    }
+
+    .footer-brand p {
+      font-size: 13px; font-weight: 300;
+      color: rgba(255,255,255,.34); line-height: 1.85;
+      max-width: 270px;
+    }
+
+    .footer-col h5 {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: rgba(255,255,255,.2); margin-bottom: 20px;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+    .footer-col a {
+      font-size: 13px; color: rgba(255,255,255,.42);
+      text-decoration: none; font-weight: 300;
+      transition: color .18s;
+    }
+
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding-top: 26px;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 10px;
+    }
+
+    .footer-bottom p {
+      font-size: 12px; color: rgba(255,255,255,.18);
+      font-weight: 300;
+    }
+
+    /* ─── MODAL ───────────────────────────────────────────── */
+    .modal-bg {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.52); z-index: 999;
+      align-items: center; justify-content: center; padding: 20px;
+    }
+
+    .modal-bg.open { display: flex; }
+
+    .modal-box {
+      background: var(--white); border-radius: 14px;
+      padding: 52px 44px; max-width: 420px; width: 100%;
+      text-align: center;
+    }
+
+    .modal-ico {
+      width: 62px; height: 62px; border-radius: 50%;
+      background: var(--blue-light);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 22px;
+    }
+
+    .modal-box h3 {
+      font-family: var(--font-head);
+      font-size: 22px; font-weight: 700;
+      letter-spacing: -0.3px; margin-bottom: 12px;
+    }
+
+    .modal-box p {
+      font-size: 14px; font-weight: 300;
+      color: var(--grey-1); line-height: 1.75;
+      margin-bottom: 30px;
+    }
+
+    .modal-btn {
+      background: var(--blue); color: var(--white);
+      border: none; border-radius: 7px;
+      padding: 12px 34px; font-size: 14px; font-weight: 500;
+      cursor: pointer; font-family: var(--font-body);
+      transition: background .18s;
+    }
+
+    .modal-btn:hover { background: var(--blue-dark); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .how-grid { grid-template-columns: 1fr; }
+      .how-step { border-bottom: 1px solid rgba(255,255,255,.06); }
+    }
+
+    @media (max-width: 900px) {
+      .nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 80px 24px 60px; }
+      .hero-right { height: 50vw; min-height: 260px; }
+
+      .section { padding: 64px 24px; }
+
+      .why-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .val { border-bottom: 1px solid var(--grey-3); }
+      .val:last-child { border-bottom: none; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-intro { grid-template-columns: 1fr; gap: 20px; }
+      .svc-grid { grid-template-columns: 1fr; }
+
+      .cta-band { grid-template-columns: 1fr; padding: 64px 24px; gap: 36px; }
+
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: span 2; }
+
+      .form-row { grid-template-columns: 1fr; }
+      .form-box { padding: 28px 22px; }
+
+      .trust-bar { padding: 0 24px; }
+    }
+
+    @media (max-width: 540px) {
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: auto; }
+      footer { padding: 52px 24px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ───────────────────────────────────────── -->
+<nav class="nav" role="navigation">
+  <a href="#home" class="nav-logo" aria-label="KET Shopping home">
+    <div class="nav-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M4 3L4 21L9 21L9 14.5L11 12.5L16.5 21L22 21L15 12L21.5 3L16 3L9 11.5L9 3Z" fill="white"/>
+      </svg>
+    </div>
+    <div class="nav-brand">
+      <span class="nav-brand-main">Ket</span>
+      <span class="nav-brand-sub">Shopping &amp; Co</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#contact" class="nav-cta">Get started</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="openMobile()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobile-nav">
+  <button class="mobile-close" onclick="closeMobile()" aria-label="Close menu">✕</button>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#how" onclick="closeMobile()">How it works</a>
+  <a href="#contact" class="cta" onclick="closeMobile()">Get started</a>
+</div>
+
+<!-- ─── HERO ─────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-pill">
+      <span class="hero-pill-dot"></span>
+      Lagos, Nigeria
+    </div>
+    <h1>The easy way<br>to shop &amp;<br>procure.</h1>
+    <p class="hero-sub">Why waste hours in traffic or struggle with unreliable suppliers? KET Shopping Limited gets you what you need, when you need it — without the hassle.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-white">Get started</a>
+      <a href="#services" class="btn btn-outline">Learn more</a>
+    </div>
+    <p class="hero-micro">Personal shopping and procurement support for busy individuals in Lagos.</p>
+  </div>
+  <div class="hero-right">
+    <!-- Premium lifestyle image: person with shopping bags, city -->
+    <img
+      class="hero-img"
+      src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=80&auto=format&fit=crop"
+      alt="Modern shopping lifestyle"
+      loading="eager"
+    >
+    <div class="hero-card">
+      <div class="hero-card-label">Our promise</div>
+      <div class="hero-card-text">We go through the stress, so you can get the best.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST BAR ─────────────────────────────────────────── -->
+<div class="trust-bar">
+  <div class="trust-track">
+    <div class="trust-item">
+      <span class="trust-text">Personal Shopping</span>
+      <span class="trust-dot"></span>
+      <span class="trust-text">Procurement Support</span>
+      <span class="trust-dot"></span>
+      <span class="trust-text">Customized Gift Sourcing</span>
+      <span class="trust-dot"></span>
+      <span class="trust-text trust-accent">Quality, always.</span>
+      <span class="trust-dot"></span>
+      <span class="trust-text">No traffic. No hassle.</span>
+      <span class="trust-dot"></span>
+      <span class="trust-text">KET Shopping Limited &mdash; Lagos</span>
+      <span class="trust-dot"></span>
+    </div>
+    <div class="trust-item" aria-hidden="true">
+      <span class="trust-text">Personal Shopping</span>
+      <span class="trust-dot"></span>
+      <span class="trust-text">Procurement Support</span>
+      <span class="trust-dot"></span>
+      <span class="trust-text">Customized Gift Sourcing</span>
+      <span class="trust-dot"></span>
+      <span class="trust-text trust-accent">Quality, always.</span>
+      <span class="trust-dot"></span>
+      <span class="trust-text">No traffic. No hassle.</span>
+      <span class="trust-dot"></span>
+      <span class="trust-text">KET Shopping Limited &mdash; Lagos</span>
+      <span class="trust-dot"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── WHY KET ───────────────────────────────────────────── -->
+<section class="section" id="why">
+  <div class="why-wrap">
+    <div class="why-left">
+      <span class="label">Why KET</span>
+      <h2 class="sec-title">Built around your time, not ours.</h2>
+      <p>Lagos is busy. Your schedule doesn't pause. KET exists to handle the shopping and sourcing — so you don't have to.</p>
+      <a href="#services" class="btn btn-outline-blue">See our services</a>
+    </div>
+    <div class="why-grid">
+      <div class="val">
+        <div class="val-n">01</div>
+        <h3>Save time</h3>
+        <p>No more hours navigating markets or tracking down the right product. Tell us what you need and we take it from there.</p>
+      </div>
+      <div class="val">
+        <div class="val-n">02</div>
+        <h3>Avoid stress</h3>
+        <p>Traffic, unreliable vendors, long queues — we absorb that friction so your experience stays smooth from start to finish.</p>
+      </div>
+      <div class="val">
+        <div class="val-n">03</div>
+        <h3>Reliable sourcing</h3>
+        <p>We find what you need from dependable sources and coordinate the process with care — so you can count on the outcome.</p>
+      </div>
+      <div class="val">
+        <div class="val-n">04</div>
+        <h3>Personalized support</h3>
+        <p>Every request is handled individually. We listen, we source, and we deliver something that genuinely fits what you had in mind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT PREVIEW ─────────────────────────────────────── -->
+<section class="section section-off" id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <img
+        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80&auto=format&fit=crop&crop=face"
+        alt="Kuforiji Esther, Head of Procurement at KET"
+        loading="lazy"
+      >
+      <div class="about-badge">
+        <div class="about-badge-name">Kuforiji Esther</div>
+        <div class="about-badge-role">Head of Procurement, KET</div>
+      </div>
+    </div>
+    <div class="about-right">
+      <span class="label">About KET</span>
+      <h2 class="sec-title">A shopping agency that puts you first.</h2>
+      <p>KET Shopping Limited is a shopping and procurement agency built for busy individuals in Lagos who value their time and refuse to compromise on quality.</p>
+      <p>We exist for one reason: to make shopping and sourcing less stressful and more reliable — so you can focus on what actually matters to you.</p>
+      <div class="about-quote">
+        <p>"We want to help people save time and stress."</p>
+        <cite>— Kuforiji Esther, Head of Procurement, KET</cite>
+      </div>
+      <a href="#contact" class="btn btn-blue">Make a request</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ──────────────────────────────────────────── -->
+<section class="section" id="services">
+  <div class="services-intro">
+    <div>
+      <span class="label">Our services</span>
+      <h2 class="sec-title">What we help you with.</h2>
+    </div>
+    <div class="services-intro-right">
+      <p>We focus on what you actually need — no unnecessary complexity, no filler. Each service is built around saving you time and reducing the stress of getting things done in Lagos.</p>
+    </div>
+  </div>
+  <div class="svc-grid">
+    <div class="svc">
+      <div class="svc-img">
+        <img
+          src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=80&auto=format&fit=crop"
+          alt="Personal shopping"
+          loading="lazy"
+        >
+      </div>
+      <div class="svc-body">
+        <div class="svc-n">01</div>
+        <h3>Personal Shopping</h3>
+        <p>Personalized support for individuals who need help sourcing and purchasing items — without the time and stress of doing it themselves.</p>
+        <a href="#contact" class="svc-link">Start a request &rarr;</a>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-img">
+        <img
+          src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80&auto=format&fit=crop"
+          alt="Procurement assistance"
+          loading="lazy"
+        >
+      </div>
+      <div class="svc-body">
+        <div class="svc-n">02</div>
+        <h3>Procurement Assistance</h3>
+        <p>Shopping and sourcing support for clients who want convenience, quality, and far less stress in getting what they need.</p>
+        <a href="#contact" class="svc-link">Start a request &rarr;</a>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-img">
+        <img
+          src="https://images.unsplash.com/photo-1513201099705-a9746072f043?w=600&q=80&auto=format&fit=crop"
+          alt="Customized gift sourcing"
+          loading="lazy"
+        >
+      </div>
+      <div class="svc-body">
+        <div class="svc-n">03</div>
+        <h3>Customized Gift Sourcing</h3>
+        <p>Help with sourcing thoughtful, customized birthday gifts for the people who matter to you — handled with care and attention.</p>
+        <a href="#contact" class="svc-link">Start a request &rarr;</a>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-img">
+        <img
+          src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80&auto=format&fit=crop"
+          alt="Personalized shopping support"
+          loading="lazy"
+        >
+      </div>
+      <div class="svc-body">
+        <div class="svc-n">04</div>
+        <h3>Personalized Shopping Support</h3>
+        <p>A more tailored experience for clients with specific preferences or needs that require a closer, more personal touch.</p>
+        <a href="#contact" class="svc-link">Start a request &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ──────────────────────────────────────── -->
+<section class="section section-dark" id="how">
+  <span class="label-white">How it works</span>
+  <h2 class="sec-title-white">Simple from your end.<br>Handled on ours.</h2>
+  <div class="how-grid">
+    <div class="how-step">
+      <div class="how-rule"></div>
+      <div class="how-n">STEP 01</div>
+      <h3>Tell us what you need</h3>
+      <p>Send us your request — describe what you're looking for, the occasion, your preferences, or any details that help us help you better.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-rule"></div>
+      <div class="how-n">STEP 02</div>
+      <h3>We source &amp; coordinate</h3>
+      <p>We manage the shopping or procurement process on your behalf — finding the right options from reliable sources with quality in mind.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-rule"></div>
+      <div class="how-n">STEP 03</div>
+      <h3>You get the best</h3>
+      <p>The result: you get what you need without going through the stress of finding it. Convenient, personalized, and quality-focused — every time.</p>
+    </div>
+  </div>
+  <p class="how-note">Full process details and next steps are shared once we receive your request.</p>
+</section>
+
+<!-- ─── CTA BAND ──────────────────────────────────────────── -->
+<div class="cta-band">
+  <div class="cta-left">
+    <h2>Ready to simplify your shopping?</h2>
+    <p>Tell us what you need. We take it from there — without the traffic, the hassle, or the compromise.</p>
+  </div>
+  <div class="cta-right">
+    <a href="#contact" class="btn btn-white">Make a request</a>
+    <a href="#services" class="btn btn-outline">See our services</a>
+  </div>
+</div>
+
+<!-- ─── CONTACT ───────────────────────────────────────────── -->
+<section class="section" id="contact">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <span class="label">Get started</span>
+      <h2 class="sec-title">Let us take the stress off your hands.</h2>
+      <p>Tell us what you're looking for and we'll help you save time and avoid the hassle. Fill in the form or reach out directly — we're here.</p>
+      <div class="channels">
+        <a class="ch" href="#[Add WhatsApp link]">
+          <div class="ch-ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.548 4.14 1.595 5.945L0 24l6.335-1.652A11.97 11.97 0 0012.04 23.89h.005c6.579 0 11.94-5.334 11.944-11.893a11.816 11.816 0 00-3.469-8.548z" fill="#25D366"/>
+              <path d="M12.04 21.853h-.003a9.96 9.96 0 01-5.031-1.36l-.362-.214-3.74.976.995-3.629-.235-.372A9.844 9.844 0 012.128 11.9c.002-5.45 4.458-9.882 9.93-9.882a9.868 9.868 0 016.994 2.88 9.788 9.788 0 012.91 6.964c-.003 5.45-4.458 9.888-9.922 9.888zm5.44-7.403c-.299-.15-1.769-.87-2.042-.968-.274-.1-.474-.15-.673.149-.199.298-.769.968-.942 1.167-.174.198-.348.223-.647.075-.299-.15-1.263-.463-2.403-1.47-.888-.785-1.49-1.754-1.664-2.051-.173-.298-.018-.46.13-.608.133-.133.298-.348.447-.522.15-.173.199-.298.298-.497.1-.198.05-.372-.025-.521-.074-.15-.672-1.608-.92-2.204-.244-.579-.49-.5-.672-.51-.173-.008-.372-.01-.571-.01s-.522.075-.794.372c-.273.299-1.043 1.017-1.043 2.479s1.068 2.876 1.218 3.075c.149.199 2.099 3.2 5.087 4.487.711.308 1.267.49 1.699.628.715.226 1.365.194 1.878.118.573-.085 1.769-.72 2.018-1.415.249-.695.249-1.291.174-1.415-.074-.124-.273-.199-.572-.348z" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="ch-info"><h4>WhatsApp</h4><p>[Add WhatsApp number]</p></div>
+          <span class="ch-arr">›</span>
+        </a>
+        <a class="ch" href="mailto:[Add email]">
+          <div class="ch-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1414a8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="ch-info"><h4>Email</h4><p>[Add email address]</p></div>
+          <span class="ch-arr">›</span>
+        </a>
+        <a class="ch" href="#[Add Instagram link]">
+          <div class="ch-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="#1414a8" stroke-width="1.8"/>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="#1414a8" stroke-width="1.8"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#1414a8" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="ch-info"><h4>Instagram</h4><p>[Add Instagram handle]</p></div>
+          <span class="ch-arr">›</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="form-box">
+      <div class="form-h">Start your request</div>
+      <div class="form-sub">We'll be in touch to discuss your needs and next steps.</div>
+      <form id="ket-form" novalidate onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="fg">
+            <label class="fl" for="fname">Full name</label>
+            <input class="fi" type="text" id="fname" placeholder="Your name" autocomplete="name" required>
+          </div>
+          <div class="fg">
+            <label class="fl" for="fphone">Phone number</label>
+            <input class="fi" type="tel" id="fphone" placeholder="+234 xxx xxxx xxx" autocomplete="tel" required>
+          </div>
+        </div>
+        <div class="fg">
+          <label class="fl" for="femail">Email address</label>
+          <input class="fi" type="email" id="femail" placeholder="your@email.com" autocomplete="email">
+        </div>
+        <div class="fg">
+          <label class="fl" for="fservice">What do you need help with?</label>
+          <select class="fsel" id="fservice">
+            <option value="">Select a service</option>
+            <option>Personal Shopping</option>
+            <option>Procurement Assistance</option>
+            <option>Customized Gift Sourcing</option>
+            <option>Personalized Shopping Support</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl" for="fdetails">Tell us more</label>
+          <textarea class="fta" id="fdetails" placeholder="Describe what you're looking for…" required></textarea>
+        </div>
+        <button type="submit" class="f-submit">Submit request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Ket</div>
+      <div class="footer-brand-sub">Shopping &amp; Co</div>
+      <p>A shopping and procurement agency for busy individuals in Lagos who value their time and refuse to compromise on quality.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#contact">Personal Shopping</a></li>
+        <li><a href="#contact">Procurement Assistance</a></li>
+        <li><a href="#contact">Gift Sourcing</a></li>
+        <li><a href="#contact">Shopping Support</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; KET Shopping Limited &nbsp;&middot;&nbsp; www.ket.com.ng</p>
+    <p>Lagos, Nigeria</p>
+  </div>
+</footer>
+
+<!-- ─── MODAL ─────────────────────────────────────────────── -->
+<div class="modal-bg" id="modal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <div class="modal-ico">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1414a8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <h3>Request received.</h3>
+    <p>Thank you. We'll review your request and be in touch shortly to discuss your needs and how we can help.</p>
+    <button class="modal-btn" onclick="closeModal()">Done</button>
+  </div>
+</div>
+
+<script>
+  // Mobile nav
+  function openMobile()  { document.getElementById('mobile-nav').classList.add('show'); document.body.style.overflow = 'hidden'; }
+  function closeMobile() { document.getElementById('mobile-nav').classList.remove('show'); document.body.style.overflow = ''; }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (!id || id === '#' || id.startsWith('#[')) return;
+      const el = document.querySelector(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // Form
+  function submitForm(e) {
+    e.preventDefault();
+    const name    = document.getElementById('fname').value.trim();
+    const phone   = document.getElementById('fphone').value.trim();
+    const details = document.getElementById('fdetails').value.trim();
+    if (!name || !phone || !details) {
+      alert('Please fill in your name, phone number, and request details.');
+      return;
+    }
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('ket-form').reset();
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Click outside modal
+  document.getElementById('modal').addEventListener('click', e => {
+    if (e.target === document.getElementById('modal')) closeModal();
+  });
+
+  // Nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelector('.nav').style.boxShadow =
+      window.scrollY > 8 ? '0 1px 24px rgba(0,0,0,0.07)' : 'none';
+  });
+</script>
+</body>
+</html>
